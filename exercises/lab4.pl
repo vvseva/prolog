@@ -11,6 +11,12 @@ clockSequence(tock(nothing)).
 clockSequence(tick(tock(S))) :- clockSequence(tock(S)).
 clockSequence(tock(tick(S))) :- clockSequence(tick(S)).
 
+
+% OR
+
+clockSequence(tick(X)) :- X = tock(), clockSequence(X).
+clockSequence(tock(X)) :- X = tick(), clockSequence(X).
+
 % tick(tock(tick(nothing)))
 
 % Russian doll, matreshca program
