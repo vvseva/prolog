@@ -31,3 +31,13 @@ split([H|T], [H|P], N) :-
 split([H|T], P, [H|N]) :-
     H < 0,
     split(T, P, N).
+
+
+/* First (and easiest) write it with the help of =/2 and \+ .
+ */
+nu(X, Y) :-
+    \+ (X = Y).
+/* Second write it with the help of =, but don’t use \+ . 
+ */
+nu(X, Y) :-
+    not(X = Y).
