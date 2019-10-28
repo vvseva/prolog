@@ -15,13 +15,21 @@ edge(e, f, 2).
 edge(f, a, 3).
 
 
+
 path(A, B, C) :- edge(A, B, C).
 path(A, B, C) :- 
     edge(A, X, P1),
     path(X, B, P2),
       C is P1 + P2.
 
-maxpath(A, B, D) :-
+maxpath(A, B, D) :- 
     path(A, B, D),
     maxpath(A, B, D1),
     D1 is D - 1.
+
+unreachable(A, B, D) :- 
+    \+ maxpath(A, B, D).
+
+
+unreachable2(A, B, D) :- 
+    maxpath(A, B, D).
