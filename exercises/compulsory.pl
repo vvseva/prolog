@@ -1,10 +1,3 @@
-%sum(A, B, AB) :- AB is A + B.
-%path(A, B, C) :- 
-%    edge(A, X, P1),
-%    path(X, B, P2),
-%    sum(P1, P2, C).
-      
-      
 edge(a, b, 2).
 edge(b, c, 1).
 edge(b, d, 4).
@@ -32,4 +25,4 @@ unreachable(A, B, D) :-
 
 
 unreachable2(A, B, D) :- 
-    maxpath(A, B, D).
+    maxpath(A, B, D), !, fail.
